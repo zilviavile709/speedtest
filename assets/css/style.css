@@ -133,16 +133,6 @@ a:hover { text-decoration: underline; }
 .main-nav a { color: var(--text-dim); font-size: 0.95rem; font-weight: 500; }
 .main-nav a:hover { color: var(--text); text-decoration: none; }
 
-/* Open-source link — the main conversion path from visitor to GitHub star */
-.nav-gh {
-  display: inline-flex; align-items: center; gap: 6px; flex: none;
-  padding: 6px 11px; border: 1px solid var(--border); border-radius: 999px;
-  background: var(--surface-2);
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-.nav-gh:hover { color: var(--text); border-color: var(--accent); }
-.nav-gh svg { display: block; }
-
 /* Theme toggle */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
@@ -431,12 +421,6 @@ a:hover { text-decoration: underline; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 18px; }
 .footer-nav a { color: var(--text-dim); }
 .footer-nav a:hover { color: var(--text); }
-.footer-oss {
-  flex-basis: 100%; margin: 4px 0 0;
-  padding-top: 14px; border-top: 1px solid var(--border-soft);
-  color: var(--text-dim); font-size: 0.87rem;
-}
-.footer-oss a { color: var(--accent); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1040px) {
@@ -450,12 +434,6 @@ a:hover { text-decoration: underline; }
   .article-grid { grid-template-columns: 1fr; }
   .main-nav { gap: 14px; font-size: 0.9rem; }
   .main-nav a.hide-m { display: none; }
-}
-
-@media (max-width: 560px) {
-  /* Keep the GitHub badge, drop its label — the mark alone still reads */
-  .nav-gh { padding: 7px 9px; }
-  .nav-gh span { display: none; }
 }
 
 @media (max-width: 640px) {
