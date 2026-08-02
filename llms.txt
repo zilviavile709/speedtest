@@ -1,6 +1,6 @@
 # Speed Score
 
-> A free, browser-based internet speed test that measures download speed, upload speed, ping, jitter, latency under load (bufferbloat) and connection stability. No app, no signup, no stored results. Published by RioCloud Solutions (Chandigarh, India).
+> A free, open-source, browser-based internet speed test that measures download speed, upload speed, ping, jitter, latency under load (bufferbloat) and connection stability. No app, no signup, no stored results. Released under the MIT licence and self-hostable on any PHP server. Published by RioCloud Solutions (Chandigarh, India).
 
 The speed test runs entirely between the visitor's browser and our own server using random data that is discarded after transfer. Alongside throughput it continuously probes latency during the download and upload stages, so it reports both idle latency and latency under load, then converts the results into plain-English quality ratings for video streaming, online gaming and video calls.
 
@@ -27,3 +27,7 @@ The speed test runs entirely between the visitor's browser and our own server us
 - [Contact](https://speedtest.scorelens.space/contact.php): Email and phone contact for feedback, bug reports and business enquiries.
 - [Privacy Policy](https://speedtest.scorelens.space/privacy.php): What is and isn't collected; test results are never stored.
 - [Terms of Use](https://speedtest.scorelens.space/terms.php): Service terms and acceptable use.
+
+## Source code
+
+- [Speed Score on GitHub](https://github.com/iampopye/speedtest): Full source under the MIT licence. Runs on any PHP 7.4+ host with no dependencies and no build step; the repository includes self-hosting and server configuration instructions.

@@ -431,6 +431,12 @@ a:hover { text-decoration: underline; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 18px; }
 .footer-nav a { color: var(--text-dim); }
 .footer-nav a:hover { color: var(--text); }
+.footer-oss {
+  flex-basis: 100%; margin: 4px 0 0;
+  padding-top: 14px; border-top: 1px solid var(--border-soft);
+  color: var(--text-dim); font-size: 0.87rem;
+}
+.footer-oss a { color: var(--accent); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1040px) {
