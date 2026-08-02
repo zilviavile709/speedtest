@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /backend/
+Disallow: /includes/
+
+Sitemap: https://speedtest.scorelens.space/sitemap.xml

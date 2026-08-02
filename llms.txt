@@ -1,0 +1,29 @@
+# Speed Score
+
+> A free, browser-based internet speed test that measures download speed, upload speed, ping, jitter, latency under load (bufferbloat) and connection stability. No app, no signup, no stored results. Published by RioCloud Solutions (Chandigarh, India).
+
+The speed test runs entirely between the visitor's browser and our own server using random data that is discarded after transfer. Alongside throughput it continuously probes latency during the download and upload stages, so it reports both idle latency and latency under load, then converts the results into plain-English quality ratings for video streaming, online gaming and video calls.
+
+## Tool
+
+- [Internet Speed Test](https://speedtest.scorelens.space/): Run a free speed test measuring download, upload, idle latency, loaded latency, jitter and stability, with per-activity quality ratings.
+
+## Guides
+
+- [What Is a Good Internet Speed?](https://speedtest.scorelens.space/blog/what-is-a-good-internet-speed.php): Mbps requirements per activity and household size, with a recommended-speed table.
+- [15 Ways to Make Your Wi-Fi Faster](https://speedtest.scorelens.space/blog/how-to-make-wifi-faster.php): Router placement, band selection, channel congestion, firmware, QoS, mesh and wired alternatives.
+- [Ping, Jitter and Latency Explained](https://speedtest.scorelens.space/blog/ping-jitter-latency-explained.php): Definitions, good/acceptable/problematic thresholds, and how to reduce latency.
+- [Why Is My Internet Slower Than Advertised?](https://speedtest.scorelens.space/blog/why-is-my-internet-slower-than-advertised.php): Mbps vs MB/s, Wi-Fi overhead, peak-time congestion, and how to test properly.
+- [Speed Test Good but Internet Slow?](https://speedtest.scorelens.space/blog/speed-test-good-but-internet-slow.php): Diagnosing the gap between good test numbers and poor real-world performance.
+- [What Is a Good Ping for Gaming?](https://speedtest.scorelens.space/blog/good-ping-for-gaming.php): Target latency ranges by game genre and how to reach them.
+- [Why Is Your Upload Speed So Slow?](https://speedtest.scorelens.space/blog/slow-upload-speed.php): Why upload trails download on most connection types, and what can be fixed.
+- [Mbps vs MB/s Explained](https://speedtest.scorelens.space/blog/mbps-vs-mbs.php): Bits versus bytes, the 8x conversion, and expected download times.
+- [Internet Speed for Netflix and 4K Streaming](https://speedtest.scorelens.space/blog/speed-for-streaming-4k.php): Per-service and per-resolution Mbps requirements.
+- [How Accurate Are Internet Speed Tests?](https://speedtest.scorelens.space/blog/speed-test-accuracy.php): What speed tests measure, why results differ between tools, and how to test reliably.
+
+## About
+
+- [About Speed Score](https://speedtest.scorelens.space/about.php): What the tool measures, how it works, and who publishes it.
+- [Contact](https://speedtest.scorelens.space/contact.php): Email and phone contact for feedback, bug reports and business enquiries.
+- [Privacy Policy](https://speedtest.scorelens.space/privacy.php): What is and isn't collected; test results are never stored.
+- [Terms of Use](https://speedtest.scorelens.space/terms.php): Service terms and acceptable use.

@@ -1,0 +1,69 @@
+# Speed Score .htaccess
+
+RewriteEngine On
+
+# Consolidate www → apex (must run before the HTTPS rule)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Force HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# /index.php → / (avoid duplicate homepage)
+RewriteCond %{THE_REQUEST} \s/+index\.php[\s?] [NC]
+RewriteRule ^index\.php$ / [L,R=301]
+
+# Never compress or cache speed-test payloads (would corrupt measurements)
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase Request_URI "^/backend/" no-gzip=1 dont-vary=1
+</IfModule>
+<IfModule mod_deflate.c>
+  SetEnvIfNoCase Request_URI "^/backend/" no-gzip dont-vary
+</IfModule>
+<IfModule mod_brotli.c>
+  SetEnvIfNoCase Request_URI "^/backend/" no-brotli
+</IfModule>
+
+# Compress text assets
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+</IfModule>
+
+DirectoryIndex index.php
+Options -Indexes
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+ErrorDocument 502 /500.php
+ErrorDocument 503 /500.php
+
+# Error pages are served at the requested URL, so keep them out of the index
+# even if a crawler reaches one directly.
+<IfModule mod_headers.c>
+  <FilesMatch "^(404|500)\.php$">
+    Header always set X-Robots-Tag "noindex, follow"
+  </FilesMatch>
+</IfModule>
+
+# Serve the correct type for the PWA manifest
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+</IfModule>

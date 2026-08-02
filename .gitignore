@@ -1,0 +1,23 @@
+# Local configuration — holds your analytics ID and verification tokens.
+# Copy includes/config.example.php to includes/config.php to create it.
+/includes/config.php
+
+# Runtime geo cache. Derived from real visitor IPs (coarsened to /24 and /48),
+# so it is visitor data and must never be committed.
+/data/geocache/*
+!/data/geocache/.gitkeep
+
+# Agent / editor state
+/.claude/
+/.vscode/
+/.idea/
+*.swp
+*~
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+error_log
